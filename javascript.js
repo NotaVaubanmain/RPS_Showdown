@@ -1,49 +1,46 @@
-const choices = ["Rock", "Paper", "Scissors"];
+const choices = ["rock", "paper", "scissors"];
 let humanScore = 0
 let computerScore = 0
 
+function game() {
+    playRound()
+}    
 
 function getComputerChoice(getHumanChoice) {
-    const computerChoice = choices[Math.floor(Math.random() * 3)];
-    console.log(computerChoice)
-    }   
-  
-
-function getHumanChoice(getComputerChoice) {
-    let humanChoice = prompt("Rock, Paper, Scissors").toLowerCase;
-
-    if (humanChoice ==="rock") {
-        console.log("Rock")
-    } else if (humanChoice ==="paper") {
-        console.log("Paper")
-    } else if (humanChoice ==="scissors") {
-        console.log("Scissors")
-    } else {
-        console.log("MAKE UR CHOICE")
-    }
+    return choices[Math.floor(Math.random() * choices.length)];
 }
 
 
-function playRound(humanChoice , computerChoice) {
-    if (humanSelection === "Rock" && computerSelection === "Paper") {
-    console.log("You Lose!")
-    } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
-    console.log("You Win!")    
-    } else if (humanChoice === "Paper" && computerChoice === "Rock") {
-        console.log("You Win!")
-    } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-        console.log("You Lose!")
-    } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-        console.log("You Lose!")
-    } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-        console.log("You Win!")
+
+
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, Paper, Scissors");
+    while (humanChoice == null) {
+     humanChoice = prompt("Rock, Paper, Scissors");   
     }
+    humanChoice = humanChoice.toLowerCase();
+    let check = validateChoice(humanChoice)
+    while (check == false) {
+     humanChoice = prompt (
+      "Rock, Paper, Scissors for real though needs correct spelling");
+      humanChoice = humanChoice.toLowerCase()
+      check = validateChoice(humanChoice)
+    }
+}
+
+function validateChoice(choice) {
+    return choices.includes(choice);
+}
+
+
+function playRound(humanSelection , computerSelection) {
+ 
 } 
+
+function playGame() {
+}
+
 const humanSelection = getHumanChoice()
 const computerSelection = getComputerChoice()
 
 playRound(humanSelection, computerSelection);
-
-// Create function 
-// use math.random to randomly return 
-
