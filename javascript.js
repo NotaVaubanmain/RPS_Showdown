@@ -85,5 +85,4 @@ function logRound (playerChoice,computerChoice,winner,round) {
 } // logs which person chose which option and
 //  declares the winner of the exchange
 
-game();
 
